@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletScript.cs" />
+    <Compile Include="Assets\Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\LightSaber.cs" />
     <Compile Include="Assets\Scripts\RaycastShootingScript.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />

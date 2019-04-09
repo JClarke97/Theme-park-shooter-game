@@ -12,17 +12,21 @@ public class RaycastShootingScript : MonoBehaviour {
     private float nextFire;
     [SerializeField] GameObject Bullet_Mark;
     [SerializeField] Timer timer;
+    Collider m_Collider;
 
 
     // Use this for initialization
     void Start()
     {
+        //geting to animator component
         TargetAnimator = GetComponent<Animator>();
+        //ceting the count value to 0 on start
         count = 0;
     }
     // Update is called once per frame
     void Update () {
 
+    //if the fire button or the ocules trigger button is pressed then fire unless the fire rate the fire rate 
         if (Input.GetButtonDown("Fire1") || controllerEvents.triggerPressed && Time.time >nextFire)
             {
             nextFire = Time.time + fireRate;
@@ -47,6 +51,7 @@ public class RaycastShootingScript : MonoBehaviour {
                     Temporary_Bullet_Mark_Game_Object.transform.rotation = Quaternion.LookRotation(Vector3.forward, hit.normal);
 
                     hit.collider.gameObject.GetComponent<Animator>().SetBool("LowerTarget", true);
+                    hit.collider.enabled = false;
 
                     Destroy(Temporary_Bullet_Mark_Game_Object, 3.0f);
 
@@ -54,7 +59,7 @@ public class RaycastShootingScript : MonoBehaviour {
                     Debug.Log(count);
                 }
 
-                if (count == 3)
+                if (count == 8)
                 {
                     timer.Finnish();
                 }

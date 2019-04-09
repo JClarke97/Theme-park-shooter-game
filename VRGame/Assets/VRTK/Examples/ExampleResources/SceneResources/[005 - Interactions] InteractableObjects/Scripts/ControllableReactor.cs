@@ -1,4 +1,5 @@
-﻿namespace VRTK.Examples
+﻿//*
+namespace VRTK.Examples
 {
     using UnityEngine;
     using UnityEngine.UI;
