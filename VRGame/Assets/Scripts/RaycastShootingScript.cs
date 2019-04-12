@@ -8,6 +8,7 @@ public class RaycastShootingScript : MonoBehaviour {
     public VRTK.VRTK_ControllerEvents controllerEvents;
     Animator TargetAnimator;
     private int count;
+    public int TimerEndCount;
     public float fireRate = 1.25f;
     private float nextFire;
     [SerializeField] GameObject Bullet_Mark;
@@ -59,7 +60,7 @@ public class RaycastShootingScript : MonoBehaviour {
                     Debug.Log(count);
                 }
 
-                if (count == 8)
+                if (count == TimerEndCount)
                 {
                     timer.Finnish();
                 }
