@@ -12,10 +12,12 @@
         public Text displayText;
         public string OutputOnMax = "Maximum Reached";
         bool isTriggered=false;
+        //chose which scene to load in editer
         public int sceneToSwitch;
 
         protected virtual void OnEnable()
         {
+            //
             controllable = (controllable == null ? GetComponent<VRTK_BaseControllable>() : controllable);
 
             controllable.MaxLimitReached += maxLimitReached;
@@ -23,6 +25,7 @@
         }
         protected virtual void maxLimitReached(object sender, ControllableEventArgs e)
         {
+            // if the button as been fully pressed then load the scene that has been chosen in the editor
             if (OutputOnMax != ""&&isTriggered==true)
             {               
                 Debug.Log(OutputOnMax);
@@ -35,7 +38,7 @@
             if (OutputOnMax != "")
             {
                 Debug.Log("min");
-                // SceneManager.LoadScene(1);
+               
             }
         }
     }
